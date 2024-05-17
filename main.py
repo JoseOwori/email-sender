@@ -4,6 +4,7 @@ import aiosmtplib
 from email.message import EmailMessage
 import os
 from dotenv import load_dotenv
+from fastapi.middleware.cors import CORSMiddleware
 
 current_dir = os.path.dirname(__file__)
 dotenv_path = os.path.join(current_dir, '.env')
@@ -16,6 +17,14 @@ password: str = os.getenv("SMTP_PASSWORD")
 receiver: str = os.getenv("RECEIVER")
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class EmailSchema(BaseModel):
