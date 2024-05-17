@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Depends
 from pydantic import BaseModel, EmailStr
-import aiosmtplib  # type: ignore
+import aiosmtplib
 from email.message import EmailMessage
 import os
 from dotenv import load_dotenv
