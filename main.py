@@ -29,7 +29,14 @@ async def send_email(email_data: EmailSchema):
     message["From"] = email_data.email
     message["To"] = receiver
     message["Subject"] = f"Message from {email_data.name}"
-    message.set_content(email_data.message)
+
+    content = f"""
+    You have received a new message from {email_data.name} ({email_data.email}).
+
+    Message:
+    {email_data.message}
+    """
+    message.set_content(content)
 
     # SMTP configuration
     smtp_host = host
