@@ -26,7 +26,7 @@ class EmailSchema(BaseModel):
 
 async def send_email(email_data: EmailSchema):
     message = EmailMessage()
-    message["From"] = email_data.email
+    message["From"] = "info@mpologomacharityfoundation.org"
     message["To"] = receiver
     message["Subject"] = f"Message from {email_data.name}"
 
@@ -40,7 +40,7 @@ async def send_email(email_data: EmailSchema):
 
     # SMTP configuration
     smtp_host = host
-    smtp_port = port
+    smtp_port = 587
     smtp_user = user
     smtp_password = password
 
