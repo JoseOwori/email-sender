@@ -30,6 +30,7 @@ app.add_middleware(
 class EmailSchema(BaseModel):
     name: str
     email: EmailStr
+    phone: str
     message: str
 
 
@@ -40,7 +41,7 @@ async def send_email(email_data: EmailSchema):
     message["Subject"] = f"Message from {email_data.name}"
 
     content = f"""
-    You have received a new message from {email_data.name} ({email_data.email}).
+    You have received a new message from {email_data.name} ({email_data.email} - {email_data.phone}).
 
     Message:
     {email_data.message}
