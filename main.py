@@ -35,7 +35,7 @@ class EmailSchema(BaseModel):
 
 async def send_email(email_data: EmailSchema):
     message = EmailMessage()
-    message["From"] = "jmattowori@gmail.com"
+    message["From"] = "rhodinemma10@gmail.com"
     message["To"] = receiver
     message["Subject"] = f"Message from {email_data.name}"
 
